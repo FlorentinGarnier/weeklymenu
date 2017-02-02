@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h2>What do we eat {{ day }}?</h2>
+        {{ form_start(form) }}
+
+        {{ form_errors(form) }}
+
+        <div class="form-group">
+            {{ form_label(form.dinnerLunch) }}
+            {{ form_widget(form.dinnerLunch, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.entree) }}
+            {{ form_widget(form.entree, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.mainCourse) }}
+            {{ form_widget(form.mainCourse, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.dessert) }}
+            {{ form_widget(form.dessert, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        {{ form_widget(form._token) }}
+        {{ form_widget(form.next, {'attr': {'class': 'btn btn-default'}}) }}
+
+        {{ form_end(form, {'render_rest': false}) }}
+    </div>
+{% endblock %}

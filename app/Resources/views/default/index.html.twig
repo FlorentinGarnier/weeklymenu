@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <table class="table table-hover">
+            <tr>
+                <th></th>
+                <th>Lunch</th>
+                <th>Dinner</th>
+            </tr>
+            {% for menu in menus %}
+            <tr>
+                <td>
+                    {{ menu.day|capitalize }}
+                </td>
+
+                <td>
+                    <ul>
+                        {% if menu.dinnerLunch == 'lunch' %}
+
+                            {% if menu.entree %}
+                                <li>Entree : {{ menu.entree }}</li>
+                            {% else %}
+                                <li>No entree</li>
+                            {% endif %}
+                            {% if menu.mainCourse %}
+                                <li>Main course : {{ menu.mainCourse }}</li>
+                            {% else %}
+                                <li>No main course</li>
+                            {% endif %}
+                            {% if menu.dessert %}
+                                <li>Dessert : {{ menu.dessert }}</li>
+                            {% else %}
+                                <li>No dessert</li>
+                            {% endif %}
+                        {% else %}
+                            <li>No lunch today</li>
+                        {% endif %}
+                    </ul>
+
+
+                </td>
+                <td>
+                    <ul>
+                        {% if menu.dinnerLunch == 'dinner' %}
+
+                            {% if menu.entree %}
+                                <li>Entree : {{ menu.entree }}</li>
+                            {% else %}
+                                <li>No entree</li>
+                            {% endif %}
+                            {% if menu.mainCourse %}
+                                <li>Main course : {{ menu.mainCourse }}</li>
+                            {% else %}
+                                <li>No main course</li>
+                            {% endif %}
+                            {% if menu.dessert %}
+                                <li>Dessert : {{ menu.dessert }}</li>
+                            {% else %}
+                                <li>No dessert</li>
+                            {% endif %}
+                        {% else %}
+                            <li>No dinner today</li>
+                        {% endif %}
+                    </ul>
+                </td>
+                {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
